@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/">MyApp</a>
+    <button class="navbar-toggler" (click)="toggleMenu()">☰</button>
+  </div>
+
+  <div class="navbar-links" [class.open]="isMenuOpen">
+    <a routerLink="/search-bar" routerLinkActive="active" (click)="isMenuOpen=false">Search</a>
+    <a routerLink="/home" routerLinkActive="active" (click)="isMenuOpen=true">Home</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="isMenuOpen=false">About</a>
+    <a routerLink="/services" routerLinkActive="active" (click)="isMenuOpen=false">Services</a>
+    <a routerLink="/login" routerLinkActive="active" (click)="isMenuOpen=false">Login</a>
+    <a routerLink="/favorite" routerLinkActive="active" (click)="isMenuOpen=false">Favorite</a>
+    <a routerLink="/register" routerLinkActive="active" (click)="isMenuOpen=false">Register</a>
+    
+  </div>
+</nav>
+
+</body>
+</html>

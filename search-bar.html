@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="search-container" style="width:100%; position: relative;">
+    <label for="searchInput" class="search-label">Search fabrics, textiles, products...</label>
+    <input
+      id="searchInput"
+      type="text"
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="onSearch()"
+      class="search-input"
+      placeholder="Search fabrics, textiles, products..."
+    />
+  
+    <button
+      type="button"
+      class="search-button"
+      (click)="onSearch()"
+      aria-label="Search"
+    >
+      🔍
+    </button>
+  </div>
+  
+</body>
+</html>
