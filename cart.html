@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div *ngFor="let item of items; let i = index" class="card" style="margin-bottom: 16px;">
+    <img [src]="item.image" [alt]="item.name" class="card-image">
+    <h3 class="card-title">{{ item.name }}</h3>
+    <div class="card-content">
+      <p>{{ item.description }}</p>
+      <p><strong>₹{{ item.price }}</strong></p>
+    </div>
+    <div class="card-actions">
+      <button class="btn btn-warn" (click)="removeFromCart(i)">Remove</button>
+    </div>
+  </div>
+  
+  <button class="btn btn-primary" [routerLink]="['/payment']" *ngIf="items.length">
+    Proceed to Payment
+  </button>
+  <button class="btn btn-warn-outline" (click)="clearCart()" *ngIf="items.length">
+    Clear Cart
+  </button>
+  <p *ngIf="!items.length">Your cart is empty.</p>
+  
+</body>
+</html>

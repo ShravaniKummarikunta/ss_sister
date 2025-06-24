@@ -1,24 +1,26 @@
-import { Injectable } from '@angular/core';
+import { Component } from '@angular/core';
+import { CartService } from '../../services/cart'; 
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-cart',
+  imports: [CommonModule, RouterModule],
+  templateUrl: './cart.html',
+  styleUrls: ['./cart.css']
 })
-export class CartService {
-  private items: any[] = [];
+export class CartComponent {
+  items: any[] = [];
 
-  getItems() {
-    return this.items;
-  }
-
-  addToCart(item: any) {
-    this.items.push(item);
-  }
-
-  clearCart() {
-    this.items = [];
+  constructor(private cartService: CartService) {
+    this.items = this.cartService.getItems();
   }
 
   removeFromCart(index: number) {
-    this.items.splice(index, 1);
+    this.cartService.removeFromCart(index);
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
   }
 }

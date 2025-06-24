@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="product-list">
+    <app-product-card
+      *ngFor="let product of products"
+      [image]="product.image"
+      [name]="product.name"
+      [description]="product.description"
+      [price]="product.price">
+    </app-product-card>
+  </div>
+    <div class="welcome">
+        <h1>Welcome to SS Sisters Fabrics & Textiles</h1>
+        <p>Discover exclusive textile deals and delivery options</p>
+      
+        <div class="options">
+          <button routerLink="/parcel">Send Fabrics</button>
+        </div>
+      </div>
+      
+</body>
+</html>

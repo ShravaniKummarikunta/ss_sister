@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div *ngIf="!paymentSuccess" class="card">
+    <h2 class="card-title">Payment Details</h2>
+    <div class="card-content">
+      <form (ngSubmit)="pay()">
+        <div class="form-group" style="width: 100%;">
+          <label for="name">Name on Card</label>
+          <input [(ngModel)]="name" name="name" id="name" required class="form-control">
+        </div>
+  
+        <div class="form-group" style="width: 100%;">
+          <label for="cardNumber">Card Number</label>
+          <input [(ngModel)]="cardNumber" name="cardNumber" id="cardNumber" required maxlength="16" class="form-control">
+        </div>
+  
+        <div style="display: flex; justify-content: space-between;">
+          <div class="form-group" style="width: 48%;">
+            <label for="expiry">Expiry</label>
+            <input [(ngModel)]="expiry" name="expiry" id="expiry" required placeholder="MM/YY" class="form-control">
+          </div>
+  
+          <div class="form-group" style="width: 48%;">
+            <label for="cvv">CVV</label>
+            <input [(ngModel)]="cvv" name="cvv" id="cvv" required maxlength="3" type="password" class="form-control">
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-primary" style="margin-top: 16px;">Pay Now</button>
+      </form>
+    </div>
+  </div>
+  
+  <div *ngIf="paymentSuccess" class="card">
+    <h2 class="card-title">Payment Successful!</h2>
+    <div class="card-content">
+      <p>Thank you for your purchase. Your order is being processed.</p>
+      <button class="btn btn-primary" routerLink="/">Back to Home</button>
+    </div>
+  </div>
+  
+</body>
+</html>

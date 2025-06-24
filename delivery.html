@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div *ngFor="let delivery of deliveries" class="card delivery-card">    
+      <h3 class="card-title">Order #{{ delivery.id }}</h3>
+      <div class="card-content">
+        <p><strong>Status:</strong> {{ delivery.status }}</p>
+        <p><strong>Date:</strong> {{ delivery.date }}</p>
+        <p><strong>Address:</strong> {{ delivery.address }}</p>
+      </div>    
+    </div>
+    <p *ngIf="!deliveries.length">No deliveries found.</p>
+</body>
+</html>
